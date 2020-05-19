@@ -1,0 +1,37 @@
+import React from 'react'
+import {View,StyleSheet,Text,TouchableOpacity,Image} from 'react-native'
+import DetailedList from '../components/DetailedList'
+import {snacks} from '../constants/arrays'
+import {green} from '../constants/colors'
+
+export default class Drinks extends React.Component{
+    static navigationOptions=()=>
+    ( {
+        title: 'Drinks',
+        headerStyle: {
+        backgroundColor: green,
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+        headerRight:()=>(
+            <TouchableOpacity><Image source={require('../assets/search.png')} style={{resizeMode:'contain',width:40,height:40}}/></TouchableOpacity>
+        )
+    })
+
+render()
+{
+    return(   
+    <View style={styles.container}>
+    <DetailedList name="Popular Items" data={snacks} />
+    </View>
+    )
+}
+}
+
+const styles=StyleSheet.create({
+    container:{
+        flex:1,
+    }
+})
